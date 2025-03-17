@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo" id="logo">
+            <img src="Component 2.png" alt="Level Logo">
+        </div>
+        <nav class="navbar" id="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Past in person classes</h2>
+    <div class="robo">
+        <button class="btn">Robotics</button>
+        <button class="btn">Jungle</button>
+        <button class="btn">Figma</button>
+    </div>
+
+    <h2>Past Online classes</h2>
+    <div class="robo">
+        <button class="bn">Programming</button>
+        <button class="bn">Algorithm</button>
+        <button class="bn">Python</button>
+    </div>
+
+    <h2>Hello Awesome people Please register below<br/>
+         in case you want to level up your skills</h2>
+    <div class="register">
+        <a href="register.html">
+            <button class="ok">Register</button>
+        </a>
+    </div>
+
+    <!-- Display submitted data here -->
+    <div id="submittedData" class="submitted-data"></div>
+
+    <script>
+        // Toggle navigation menu on logo click (for small screens)
+        const logo = document.getElementById('logo');
+        const navbar = document.getElementById('navbar');
+
+        logo.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Retrieve and display submitted data
+        const submittedData = JSON.parse(sessionStorage.getItem('registrationData'));
+        const submittedDataDiv = document.getElementById('submittedData');
+
+        if (submittedData) {
+            submittedDataDiv.innerHTML = `
+                <div class="data-container">
+                    ${submittedData.image !== 'No image uploaded' ? `<img src="${submittedData.image}" alt="Uploaded Image" class="uploaded-image">` : 'No image uploaded'}
+                    <div class="text-container">
+                        <p class="course">${submittedData.course}</p>
+                        <p class="motivation">${submittedData.motivation}</p>
+                    </div>
+                </div>
+            `;
+            submittedDataDiv.classList.add('has-data'); // Add class to show border
+        }
+
+        // Clear sessionStorage after displaying the data
+        sessionStorage.removeItem('registrationData');
+    </script>
+</body>
+</html>
