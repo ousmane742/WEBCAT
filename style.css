@@ -1,0 +1,189 @@
+/* Reset some default styles */
+body, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Logo styling */
+.logo img {
+    height: 50px; /* Adjust based on your logo size */
+}
+
+/* Navigation styling */
+.navbar {
+    flex-grow: 1; /* Allow navbar to take up remaining space */
+    display: flex;
+    justify-content: center; /* Center the nav-links */
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 20px; /* Space between links */
+}
+
+.navbar .nav-links li a {
+    font-size: 16px;
+    transition: color 0.3s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar .nav-links li a:hover {
+    color: #f39c12; /* Change color on hover */
+}
+
+h2 {
+    text-align: center;
+    font-size: 35px;
+    margin-left: 10px;
+    margin-top: 60px;
+}
+
+.robo {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.btn {
+    padding: 60px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: 30px;
+    margin-left: 70px;
+    background-color: red;
+    border-style: none;
+    border-top-left-radius: 20px;
+    font-size: 30px;
+    color: white;
+}
+
+.bn {
+    padding: 60px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-right: 30px;
+    margin-left: 70px;
+    margin-bottom: 20px;
+    font-size: 23px;
+    background-color: blue;
+    border-bottom-right-radius: 20px;
+    color: white;
+    border-style: none;
+}
+
+.register {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ok {
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    color: blue;
+}
+
+/* Submitted data section styling */
+.submitted-data {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Add border only when there is data */
+.submitted-data.has-data {
+    border: 1px solid #ccc;
+}
+
+/* Flexbox layout for image, course, and motivation */
+.data-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between image and text */
+}
+
+.uploaded-image {
+    width: 100px; /* Set image size to 100px */
+    height: 100px;
+    border-radius: 10px; /* Optional: Add rounded corners */
+    object-fit: cover; /* Ensure the image fits within the dimensions */
+}
+
+.text-container {
+    flex: 1; /* Allow text to take up remaining space */
+}
+
+.course {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.motivation {
+    font-size: 16px;
+    color: red; /* Make motivation text red */
+}
+
+/* Responsive styles for screens less than 1000px */
+@media (max-width: 1000px) {
+    /* Add margin between buttons */
+    .btn, .bn {
+        margin: 15px; /* Add 15px margin between buttons */
+    }
+
+    /* Hide navigation links by default */
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 20px;
+        background-color:white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-left: -100px;
+    }
+
+    /* Show navigation links in flex layout when active */
+    .navbar.active .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Space between links */
+    }
+
+    /* Ensure logo is clickable */
+    .logo {
+        pointer-events: auto; /* Enable logo click on small screens */
+    }
+}
+
+/* Styles for screens larger than 1000px */
+@media (min-width: 1001px) {
+    .navbar .nav-links {
+        display: flex; /* Always show navigation links */
+    }
+
+    .logo {
+        pointer-events: none; /* Disable logo click on large screens */
+    }
+}
